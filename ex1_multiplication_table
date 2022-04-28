@@ -1,0 +1,11 @@
+<?php
+
+$length = 10;
+$i = 1;
+$j = 1;
+
+echo "Multiplication table: $table <br>";
+for($i=1; $i<=$length; $i++)
+  for($j=1; $j<=$length; $j++)
+    echo ".$i * $j. "<br>";
+?>
