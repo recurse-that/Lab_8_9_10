@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=UTF-8 />
+  <link rel="stylesheet" href="styles.css">
+	<script src="formChecker.js"></script>
+	<title> Multiple-choice quiz </title>
+</head>
+	<body>
+
+    <div class = "Cart-Container">
+
+
+		<form method="post" action="customerBackend.php">
+		    <input type="text" value="Username" name="Username"><br>
+        <input type="text" value="Password" name="Password"><br>
+
+        <div class="Cart-Items">
+         <div class="image-box">
+           <img src="images/kiss-boots.jpg" style={{ height="120px"}} />
+         </div>
+         <div class="about">
+           <h1 class="title">Bevel Grill Kiss Boots</h1>
+           <h3 class="subtitle">SS 2019</h3>
+         </div>
+				 <div class="counter">
+					 <button class="plus-btn" type="button" name="button">
+		         +
+		       </button>
+		       <input type="number" name="item-1-count" value=0>
+		       <button class="minus-btn" type="button" name="button">
+		         -
+		       </button>
+ 			 	 </div>
+				 <div class="prices">
+					 <div class="amount">$1,900</div>
+ 			 	 </div>
+			 </div>
+
+			 <div class="Cart-Items">
+				 <div class="image-box">
+           <img src="images/snow-boots.jpg" style={{ height="120px"}} />
+         </div>
+         <div class="about">
+           <h1 class="title">Moncler x Rick Owens Amber</h1>
+           <h3 class="subtitle">FW 2013</h3>
+         </div>
+				 <div class="counter">
+					 <button class="plus-btn" type="button" name="button">
+		         +
+		       </button>
+		       <input type="number" name="item-2-count" value=0>
+		       <button class="minus-btn" type="button" name="button">
+		         -
+		       </button>
+ 			 	 </div>
+				 <div class="prices">
+					 <div class="amount">$3,200</div>
+ 			 	 </div>
+				</div>
+
+				<div class="Cart-Items">
+					<div class="image-box">
+						<img src="images/glitter-pentagram-boots.jpg" style={{ height="120px"}} />
+					</div>
+					<div class="about">
+						<h1 class="title">Pentagram Lace-Up Creeper</h1>
+						<h3 class="subtitle">FW 2017</h3>
+					</div>
+					<div class="counter">
+						<button class="plus-btn" type="button" name="button">
+ 		         +
+ 		       </button>
+ 		       <input type="number" name="item-3-count" value=0>
+ 		       <button class="minus-btn" type="button" name="button">
+ 		         -
+ 		       </button>
+					</div>
+					<div class="prices">
+						<div class="amount">$4,800</div>
+					</div>
+				 </div>
+
+				 <div class="Submit">
+				 	<input type="submit" value="Submit Order">
+				 </div>
+				</form>
+    </div>
+	</body>
+</html>
