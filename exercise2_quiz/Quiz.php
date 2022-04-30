@@ -7,24 +7,42 @@
 	<body>
 		<h1> Results </h1>
 		<?php
-			$question1 = 'question-1-answers';
+		
+			$question[0] = 'What is the capital of Slovenia?';
+			$question[1] = "What is the capital of Portugal?";
+			$question[2] = "What is the capital of Romania?";
+			$question[3] = "What is the capital of Poland?";
+			$question[4] = "What is the capital of Sweden?";
 
-			$answer1 = $_POST['question-1-answers'];
-			$answer2 = $_POST['question-2-answers'];
-			$answer3 = $_POST['question-3-answers'];
-				
-			$totalCorrect = 0;
+
+
 			
-			if($answer1 == "A") { $totalCorrect++; }
-			if($answer2 == "B") { $totalCorrect++; }
-			if($answer3 == "A") { $totalCorrect++; }
+			$answerKey = ['A) Ljublijana', 'D) Lisbon', 'C) Bucharest', 'A) Warsaw', 'B) Stockholm'];	
 
+			$correct = 0;
+		
+			$i = 0;
+			$i_c = 1;
 
-			echo "<div id='results'>$totalCorrect / 5 correct</div>";
+			foreach($_POST as $answer) {
+				
+				if($answer[$question[$i]] == $answerKey[$i][0]) { 
+					$correct++; 
+					echo "<div> <h3>Question $i_c:  $question[$i]: Correct</h3></div>";
+				}
+				else {
+					echo "<div> <h3>Question $i_c $question[$i]: Incorrect</h3></div>";
+				}
+				echo "<div> Your Answer: $answer,<br> Correct Answer: $answerKey[$i]</div>"; 
+				$i = $i_c;
+				$i_c++;
+				
+			}
+			
+			$percent = $correct / 5.0 * 100;
+			echo "<div id='results'><br><h2>$correct / 5 correct <br> $percent Percent</h2></div>";
 		?>
-		<h3> 1. The word which means "house" is: </h3>
-			<h4> Correct Answer: A) Maison </h4>
-			<h4> Your Answer: </ħ4>
+		
 	</body>
 			
 </html>
