@@ -1,0 +1,79 @@
+<html>
+    <head>
+	<title>Delete Posts</title>
+    	<link rel="stylesheet" href="styles.css">
+	
+    </head>
+	<body>
+	 <br>
+	<div class="select">
+	<form action="Delete Posts.php" method="post">
+	
+	<label for="Users"></label>
+	
+	
+	<select name="Users" id="Users" onChange="update()" >
+     	 <?php
+	
+		$mysqli = new mysqli("129.237.87.5", "i163e935", "ooCh4ek3", "i163e935"); 
+		
+		/* check connection */ 
+		if ($mysqli->connect_errno) { 
+   		  printf("Connect failed: %s\n", $mysqli->connect_error); 
+    		  exit(); 
+		} 
+
+		$i = 0;
+		
+
+		$query = "SELECT user_id FROM Users";
+		/* Check if the username exists in user database */
+		if ($result = $mysqli->query($query)) { 
+   			 /* fetch associative array */ 
+   			 while ($row = $result->fetch_assoc()) { 
+       			 	printf ("%s (%s)\n", $row["Name"], $row["user_id"]); 
+				
+                  		$name = $row['Name']; 
+				$id = $row['user_id'];
+				/* echo "<option value=\"user_id\">" . $row['user_id'] . "</option>"; */
+				echo '<option value="'.$id.'">'.$row['user_id'] .'</option>';
+				$userList[$i] = ($row["Name"] . $row["user_id"]);
+				$i++;
+    			}
+ 
+    			/* free result set */ 
+    			$result->free(); 
+			echo($userList[0]);
+			
+		} else {
+			echo "FAILED";
+		}
+			
+  			
+		/* close connection */ 
+		$mysqli->close(); 
+      	?>
+		
+	</select>
+	<input type="text" id="value" value="value" name="value">
+	
+	<input class='submit' type='submit' value="Submit">
+	<form>
+
+	</div>
+		<script type="text/javascript">
+			function update() {
+				var select = document.getElementById('Users');
+				var option = select.options[select.selectedIndex];
+
+				document.getElementById('value').value = option.value;
+				
+
+			}
+			
+			update();
+			
+		</script>
+  	</body>
+
+</html>
