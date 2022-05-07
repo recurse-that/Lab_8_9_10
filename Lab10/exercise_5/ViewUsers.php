@@ -7,6 +7,8 @@
 	<body>
 	 <br>
 	<div class = "Container">
+		<h3> Users: </h3>
+	<ul> 
      	 <?php
 	
 		$mysqli = new mysqli("129.237.87.5", "i163e935", "ooCh4ek3", "i163e935"); 
@@ -23,7 +25,7 @@
 		if ($result = $mysqli->query($query)) { 
    			 /* fetch associative array */ 
    			 while ($row = $result->fetch_assoc()) { 
-       			 	printf ("%s (%s)\n", $row["Name"], $row["user_id"]); 
+				echo "<li>".$row["Name"], $row["user_id"]."</li>";
     			}
  
     			/* free result set */ 
@@ -37,6 +39,7 @@
 
 		
       	?>
+	</ul>
 	</div>
   	</body>
 

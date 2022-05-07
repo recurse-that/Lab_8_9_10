@@ -1,17 +1,15 @@
 
 <html>
     <head>
-	<title>View User Posts Page</title>
+	<title>Delete Posts Page</title>
     	<link rel="stylesheet" href="styles.css">
 	
     </head>
 	<body>
 	 <br>
      	 <?php
-		foreach($_POST as $users_id) {
-			echo ($user_ids['Users']);
-		}
-		printf( $_POST['value']);
+
+		
 
 	
 		$mysqli = new mysqli("129.237.87.5", "i163e935", "ooCh4ek3", "i163e935"); 
@@ -23,7 +21,24 @@
     		  exit(); 
 		} 
 
-
+		$name = $_GET['post'];
+	
+		$i = 0;
+		
+		foreach($name as $post_id) {
+			echo "Deleting post with ID: " .$post_id. "<br />";
+			$queries[$i] = "DELETE FROM Posts WHERE post_id=" .$post_id;
+			$query = "DELETE FROM Posts WHERE post_id=" .$post_id;
+			$i++;
+		}
+		
+		
+		if ($mysqli->query($query) == TRUE) {
+			while ($row = $result->fetch_assoc()) { 
+				
+			}
+		}
+		
 		/* close connection */ 
 		$mysqli->close(); 
 

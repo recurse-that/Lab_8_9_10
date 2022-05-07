@@ -42,7 +42,7 @@ select {
   // A reset of styles, including removing the default dropdown arrow
   appearance: none;
   // Additional resets for further consistency
-  background-color: transparent;
+  background-color: #ced8d9;
   border: none;
   padding: 0 1em 0 0;
   margin: 0;
@@ -51,6 +51,7 @@ select {
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
+
 }
 
 .select {
@@ -63,7 +64,7 @@ select {
   font-size: 1.25rem;
   cursor: pointer;
   line-height: 1.1;
-  background-color: #fff;
+  background-color: #ced8d9;
   background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
   display: grid;
   grid-template-areas: "select";
@@ -83,3 +84,21 @@ select,
 .select:after {
   grid-area: select;
 }
+
+
+ul {
+  background: #ced8d9;
+  padding: 20px;
+}
+
+ul li {
+  background: #ced8d9;
+  color: white;
+  margin: 5px;
+  align-items: center;
+}
+
+h3 {
+  color: #abf7ff;
+}
+

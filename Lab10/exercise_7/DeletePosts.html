@@ -7,12 +7,14 @@
 	<body>
 	 <br>
 	<div class="select">
-	<form action="DeletePosts.php" method="post">
+	<h3>Select a user whose post you want to delete</h3>
+	<form action="DeletePosts.php" method="get">
 	
 	<label for="Users"></label>
 	
 	
-	<select name="Users" id="Users" onChange="update()" >
+	<table name="Posts" id="Posts">
+	 
      	 <?php
 	
 		$mysqli = new mysqli("129.237.87.5", "i163e935", "ooCh4ek3", "i163e935"); 
@@ -25,20 +27,21 @@
 
 		$i = 0;
 		
-
-		$query = "SELECT user_id FROM Users";
+		
+		$query = "SELECT post_id, content, author_id FROM Posts";
 		/* Check if the username exists in user database */
-		if ($result = $mysqli->query($query)) { 
+		if ($result = $mysqli->query($query)) {
+			 echo "<tr> <th>Author ID</th> <th>Content</th> <th>Post ID</th> <th>Delete<th> </tr>";
    			 /* fetch associative array */ 
    			 while ($row = $result->fetch_assoc()) { 
-       			 	printf ("%s (%s)\n", $row["Name"], $row["user_id"]); 
+                  		$name = $row['author_id']; 
+				$post_id = $row['post_id'];
+				$content = $row['content'];
+				echo '<tr> <th>'.$name.'</th>
+				      <th>'.$content.'</th>
+				      <th>' .$post_id. '</th>
+	                              <th><input type="checkbox" id='.$post_id.' name="post[]" value='.$post_id.'></th></tr>';
 				
-                  		$name = $row['Name']; 
-				$id = $row['user_id'];
-				/* echo "<option value=\"user_id\">" . $row['user_id'] . "</option>"; */
-				echo '<option value="'.$id.'">'.$row['user_id'] .'</option>';
-				$userList[$i] = ($row["Name"] . $row["user_id"]);
-				$i++;
     			}
  
     			/* free result set */ 
@@ -54,26 +57,14 @@
 		$mysqli->close(); 
       	?>
 		
-	</select>
-	<input type="text" id="value" value="value" name="value">
+	</table>
+	
 	
 	<input class='submit' type='submit' value="Submit">
 	<form>
 
 	</div>
-		<script type="text/javascript">
-			function update() {
-				var select = document.getElementById('Users');
-				var option = select.options[select.selectedIndex];
 
-				document.getElementById('value').value = option.value;
-				
-
-			}
-			
-			update();
-			
-		</script>
   	</body>
 
 </html>
